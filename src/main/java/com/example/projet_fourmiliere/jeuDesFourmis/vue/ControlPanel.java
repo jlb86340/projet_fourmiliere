@@ -1,16 +1,10 @@
-package com.example.projet_fourmiliere.vue;
+package com.example.projet_fourmiliere.jeuDesFourmis.vue;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
-import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Line;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 
 public class ControlPanel extends VBox {
     //Attributs

@@ -1,16 +1,11 @@
-package com.example.projet_fourmiliere;
+package com.example.projet_fourmiliere.jeuDesFourmis;
 
-import com.example.projet_fourmiliere.controller.Controller;
-import com.example.projet_fourmiliere.model.Fourmi;
-import com.example.projet_fourmiliere.vue.Board;
-import com.example.projet_fourmiliere.vue.Interface;
+import com.example.projet_fourmiliere.jeuDesFourmis.controller.Controller;
+import com.example.projet_fourmiliere.jeuDesFourmis.model.Fourmi;
+import com.example.projet_fourmiliere.jeuDesFourmis.vue.Interface;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class test extends Application {
     @Override

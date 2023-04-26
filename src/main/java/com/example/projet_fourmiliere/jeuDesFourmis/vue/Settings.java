@@ -1,12 +1,10 @@
-package com.example.projet_fourmiliere.vue;
+package com.example.projet_fourmiliere.jeuDesFourmis.vue;
 
 import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 
 //Cette partie est consacrée aux changements de paramètres de la fourmilière
 //Taille du plateau

@@ -1,6 +1,5 @@
-package com.example.projet_fourmiliere.vue;
+package com.example.projet_fourmiliere.jeuDesFourmis.vue;
 
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Paint;

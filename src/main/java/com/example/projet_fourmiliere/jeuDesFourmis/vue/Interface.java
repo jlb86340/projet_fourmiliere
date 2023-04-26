@@ -1,16 +1,12 @@
-package com.example.projet_fourmiliere.vue;
+package com.example.projet_fourmiliere.jeuDesFourmis.vue;
 
 import javafx.beans.value.ChangeListener;
 import javafx.geometry.Bounds;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 public class Interface extends VBox {

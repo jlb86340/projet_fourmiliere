@@ -3,6 +3,8 @@ module com.example.projet_fourmiliere {
     requires javafx.fxml;
 
 
-    opens com.example.projet_fourmiliere to javafx.fxml;
-    exports com.example.projet_fourmiliere;
+    opens com.example.projet_fourmiliere.jeuDesFourmis to javafx.fxml;
+    exports com.example.projet_fourmiliere.jeuDesFourmis;
+    exports com.example.projet_fourmiliere.jeuDesFourmis.controller;
+    opens com.example.projet_fourmiliere.jeuDesFourmis.controller to javafx.fxml;
 }

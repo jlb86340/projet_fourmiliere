@@ -1,4 +1,4 @@
-package com.example.projet_fourmiliere.vue;
+package com.example.projet_fourmiliere.jeuDesFourmis.vue;
 
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

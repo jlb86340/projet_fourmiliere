@@ -1,13 +1,12 @@
-package com.example.projet_fourmiliere.controller;
+package com.example.projet_fourmiliere.jeuDesFourmis.controller;
 
-import com.example.projet_fourmiliere.model.Fourmi;
-import com.example.projet_fourmiliere.vue.Board;
-import com.example.projet_fourmiliere.vue.Interface;
+import com.example.projet_fourmiliere.jeuDesFourmis.model.Fourmi;
+import com.example.projet_fourmiliere.jeuDesFourmis.vue.Board;
+import com.example.projet_fourmiliere.jeuDesFourmis.vue.Interface;
 import javafx.application.Platform;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
-import javafx.scene.control.Tab;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
 import javafx.scene.input.MouseEvent;

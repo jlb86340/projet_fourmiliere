@@ -1,4 +1,4 @@
-package com.example.projet_fourmiliere.model;
+package com.example.projet_fourmiliere.jeuDesFourmis.model;
 
 /** 
  * Classe de gestion de fourmis
