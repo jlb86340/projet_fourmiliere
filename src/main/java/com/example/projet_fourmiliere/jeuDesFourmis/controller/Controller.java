@@ -91,11 +91,11 @@ public class Controller {
 
         //changement taille paramètre
 
-        myInterface.getSettings().getTaillePlatJeu().textProperty().addListener((observable, oldValue, newValue) -> {
-
-                myInterface.getBoard().resizeBoard(Integer.parseInt(newValue),Integer.parseInt(newValue));
-
-        });
+//        myInterface.getSettings().getTaillePlatJeu().textProperty().addListener((observable, oldValue, newValue) -> {
+//
+//                myInterface.getBoard().resizeBoard(Integer.parseInt(newValue),Integer.parseInt(newValue));
+//
+//        });
     }
     //Méthodes
 }
