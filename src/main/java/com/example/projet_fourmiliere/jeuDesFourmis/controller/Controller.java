@@ -88,6 +88,10 @@ public class Controller {
         myInterface.getControlPanel().getButton(5).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
             Platform.exit();
         });
+
+        //changement taille paramètre
+
+        //myInterface.getControlPanel().getS
     }
     //Méthodes
 }

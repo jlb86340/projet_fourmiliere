@@ -15,6 +15,8 @@ public class Settings extends GridPane {
     private Slider vitSimulation;
     private TextField taillePlatJeu;
     private TextField capaCases;
+
+
     //Constructeur
     public Settings(){
 
@@ -40,4 +42,27 @@ public class Settings extends GridPane {
         this.setAlignment(Pos.CENTER);
     }
     //Méthodes
+    public Slider getVitSimulation() {
+        return vitSimulation;
+    }
+
+    public void setVitSimulation(Slider vitSimulation) {
+        this.vitSimulation = vitSimulation;
+    }
+
+    public TextField getTaillePlatJeu() {
+        return taillePlatJeu;
+    }
+
+    public void setTaillePlatJeu(TextField taillePlatJeu) {
+        this.taillePlatJeu = taillePlatJeu;
+    }
+
+    public TextField getCapaCases() {
+        return capaCases;
+    }
+
+    public void setCapaCases(TextField capaCases) {
+        this.capaCases = capaCases;
+    }
 }
