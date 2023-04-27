@@ -16,10 +16,8 @@ public class Board extends GridPane {
     private Circle seed;
     private Circle ant;
     //Constructeur
-    public Board(int size){
+    public Board(int size,int cellSize){
         super();
-        //Vérification de la taille du plateau
-        if(size<20)size=20;
 
         //this.setGridLinesVisible(true);
         this.setMinSize(200,200);
@@ -29,18 +27,30 @@ public class Board extends GridPane {
         //Construction du plateau
         for (int i = 0 ; i < size ; i++){
             for (int j = 0 ; j < size ; j++) {
-                this.cell = new Rectangle(10,10, Paint.valueOf("#FFFFFF"));
+                this.cell = new Rectangle(cellSize,cellSize, Paint.valueOf("#FFFFFF"));
                 this.cells[i][j] = this.cell;
                 this.add(this.cell,i,j);
             }
         }
         this.setAlignment(Pos.CENTER);
-        this.setStyle("-fx-start-margin: 5");
+        this.setHgap(1);
+        this.setVgap(1);
+        this.setStyle("-fx-background-color: black");
+    }
+    public Board(int size){
+        this(size,10);
+        //Vérification de la taille du plateau
+        if(size<20) size=20;
+        resizeBoard(20,20);
     }
     //Méthodes
     public void setCell(Shape cell, int h, int l){
         this.cells[h][l] = cell;
         this.add(cell, h, l);
+    }
+
+    public Shape getCell(int h, int l){
+        return this.cells[h][l];
     }
 
     public void resetCell(int h, int l){
@@ -49,11 +59,25 @@ public class Board extends GridPane {
     }
 
     public void resetBoard(){
-        for (int i = 0 ; i < this.size ; i++){
-            for (int j = 0 ; j < this.size ; j++) {
+        resizeBoard(this.size,this.size);
+    }
+
+    public void resizeBoard(int Hauteur, int Largeur){
+        for(int i =0; i< Hauteur; i++){
+            for(int j=0; j< Largeur; j++){
                 this.cell = new Rectangle(10,10, Paint.valueOf("#FFFFFF"));
                 this.cells[i][j] = this.cell;
                 this.add(this.cell,i,j);
+            }
+        }
+    }
+
+    public void boardZoom(int X, int Y){ // X et Y represente respectivement getcellX/Y(mousseClicked)
+        for(int i =0; i< 11; i++){
+            for(int j=0; j< 11; j++){
+                this.cells[i][j] = this.getCell(X-6+i,Y-6+j); // cette formule dans le getCell permet d'assurer qu'on récupère
+                // bien le tableau avec pour cellule de base celle du milieu qui sera [6;6]
+
             }
         }
     }

@@ -27,39 +27,60 @@ public class Controller {
 
         //Abonnements
         //Du bouton play/pause
+
+
+
+        //Bouton loupe
+//        myInterface.getControlPanel().getButton(1).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
+//           Stage secondStage = new Stage();
+//           Board board = myInterface.getBoard();
+//            SnapshotParameters parameters = new SnapshotParameters();
+//            parameters.setFill(Color.TRANSPARENT);
+//            WritableImage image = board.snapshot(parameters, null);
+//
+//            //Pour pouvoir zoomer un gridpane, on va devoir l'exploiter sous forme d'image
+//            imageView = new ImageView(image);
+//            //Les dimensions de l'image zoomé
+//            imageView.setFitWidth(330);
+//            imageView.setFitHeight(330);
+//
+//            //SI on clique sur un endroit dans le terrain
+//            myInterface.getBoard().setOnMouseClicked(mouseEvent -> {
+//                //On veux un zoom *11 sur l'endroit cliqué
+//                double zoom = 11.0;
+//                double centerX = mouseEvent.getX();
+//                double centerY = mouseEvent.getY();
+//                if (imageView != null){
+//                    double newWidth = imageView.getBoundsInParent().getWidth() / zoom;
+//                    double newHeight = imageView.getBoundsInParent().getHeight() / zoom;
+//                    double newX = centerX - (newWidth / 2.0);
+//                    double newY = centerY - (newHeight / 2.0);
+//                    Rectangle2D zoomRect = new Rectangle2D(newX,newY,newWidth,newHeight);
+//
+//                    imageView.setViewport(zoomRect);
+//                }
+//            });
+//
+//            Scene scene = new Scene(new StackPane(imageView), 330,330);
+//            secondStage.setScene(scene);
+//            secondStage.show();
+//
+//        });
         //Bouton loupe
         myInterface.getControlPanel().getButton(1).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
             Stage secondStage = new Stage();
             Board board = myInterface.getBoard();
-            SnapshotParameters parameters = new SnapshotParameters();
-            parameters.setFill(Color.TRANSPARENT);
-            WritableImage image = board.snapshot(parameters, null);
 
-            //Pour pouvoir zoomer un gridpane, on va devoir l'exploiter sous forme d'image
-            imageView = new ImageView(image);
-            //Les dimensions de l'image zoomé
-            imageView.setFitWidth(330);
-            imageView.setFitHeight(330);
-
-            //SI on clique sur un endroit dans le terrain
+            Board imageView = new Board(11,29); // création d'un tableau de 11 par 11
+                    // SI on clique sur un endroit dans le terrain
             myInterface.getBoard().setOnMouseClicked(mouseEvent -> {
-                //On veux un zoom *11 sur l'endroit cliqué
-                double zoom = 11.0;
-                double centerX = mouseEvent.getX();
-                double centerY = mouseEvent.getY();
-                if (imageView != null){
-                    double newWidth = imageView.getBoundsInParent().getWidth() / zoom;
-                    double newHeight = imageView.getBoundsInParent().getHeight() / zoom;
-                    double newX = centerX - (newWidth / 2.0);
-                    double newY = centerY - (newHeight / 2.0);
-                    Rectangle2D zoomRect = new Rectangle2D(newX,newY,newWidth,newHeight);
-
-                    imageView.setViewport(zoomRect);
-                }
+                imageView.boardZoom(1,1);
             });
             Scene scene = new Scene(new StackPane(imageView), 330,330);
             secondStage.setScene(scene);
             secondStage.show();
+
+
 
         });
         //Changement de terrain
