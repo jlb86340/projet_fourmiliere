@@ -74,14 +74,18 @@ public class Board extends GridPane {
         }
     }
 
-    public void boardZoom(int X, int Y){ // X et Y represente respectivement getcellX/Y(mousseClicked)
+    public Board boardZoom(int X, int Y){ // X et Y represente respectivement getcellX/Y(mousseClicked)
+        Board board = new Board(11,29);
         for(int i =0; i< 11; i++){
             for(int j=0; j< 11; j++){
-                if(this.cells[i][j]!=null) {
+                if((X - 6 + i)<0 || (X - 6 + i)>11 || (Y - 6 + j)<0 || (Y - 6 + j)>11) {
+                }
+                else {
                     this.cells[i][j] = this.getCell(X - 6 + i, Y - 6 + j); // cette formule dans le getCell permet d'assurer qu'on récupère
                     // bien le tableau avec pour cellule de base celle du milieu qui sera [6;6]
                 }
             }
         }
+        return board;
     }
 }

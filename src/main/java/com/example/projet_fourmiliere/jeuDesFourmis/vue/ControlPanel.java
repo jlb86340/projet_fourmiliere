@@ -20,7 +20,7 @@ public class ControlPanel extends VBox {
     public ControlPanel(){
         this.Loupe = new Button("Loupe");
         this.Quit = new Button("Quitter");
-        this.PlayAndPause = new Button("Start");
+        this.PlayAndPause = new Button("Play");
         this.Reset = new Button("Reset");
         this.Init = new Button("Initialiser");
         this.Settings = new Button("Paramètres");

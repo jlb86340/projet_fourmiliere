@@ -27,9 +27,15 @@ public class Controller {
 
         //Abonnements
         //Du bouton play/pause
+        myInterface.getControlPanel().getButton(3).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent-> {
+            if(myInterface.getControlPanel().getButton(3).getText().equals("Play")){
+                myInterface.getControlPanel().getButton(3).setText("Pause");
+            }
+            else{
+                myInterface.getControlPanel().getButton(3).setText("Play");
+            }
 
-
-
+        });
         //Bouton loupe
 //        myInterface.getControlPanel().getButton(1).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
 //           Stage secondStage = new Stage();
@@ -71,10 +77,10 @@ public class Controller {
             Stage secondStage = new Stage();
             Board board = myInterface.getBoard();
 
-            Board imageView = new Board(11,29); // création d'un tableau de 11 par 11
+            Board imageView = new Board(11,29); // création d'un tableau de 11 par 11  // new Board(11,29)
                     // SI on clique sur un endroit dans le terrain
             myInterface.getBoard().setOnMouseClicked(mouseEvent -> {
-                imageView.boardZoom(1,1);
+                imageView.boardZoom(1,1); // normalement getX et getY mais pour l'instant il faut trouver comment réglé le OutOfBound
             });
             Scene scene = new Scene(new StackPane(imageView), 330,330);
             secondStage.setScene(scene);
