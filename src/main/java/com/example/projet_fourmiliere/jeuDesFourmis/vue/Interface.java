@@ -78,4 +78,7 @@ public class Interface extends VBox {
         //"boundsInParentProperty()" renvoi les coordonnées et la taille du noeud dans son parent
         node.boundsInParentProperty().addListener(listener);
     }
+    public Boolean getState() {
+        return state;
+    }
 }

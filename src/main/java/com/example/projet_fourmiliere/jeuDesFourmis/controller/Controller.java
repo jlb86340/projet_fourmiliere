@@ -89,13 +89,19 @@ public class Controller {
             Platform.exit();
         });
 
-        //changement taille paramètre
+        //Boutton reset
+        myInterface.getControlPanel().getButton(2).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
+            myInterface.getBoard().resetBoard();
+        });
 
-//        myInterface.getSettings().getTaillePlatJeu().textProperty().addListener((observable, oldValue, newValue) -> {
-//
-//                myInterface.getBoard().resizeBoard(Integer.parseInt(newValue),Integer.parseInt(newValue));
-//
-//        });
+        //changement taille paramètre
+        if(myInterface.getState()) {
+            myInterface.getSettings().getTaillePlatJeu().textProperty().addListener((observable, oldValue, newValue) -> {
+                if(myInterface.getSettings().getTaillePlatJeu() != null) {
+                    myInterface.getBoard().resizeBoard(Integer.parseInt(newValue), Integer.parseInt(newValue));
+                }
+            });
+        }
     }
     //Méthodes
 }

@@ -65,9 +65,11 @@ public class Board extends GridPane {
     public void resizeBoard(int Hauteur, int Largeur){
         for(int i =0; i< Hauteur; i++){
             for(int j=0; j< Largeur; j++){
-                this.cell = new Rectangle(10,10, Paint.valueOf("#FFFFFF"));
-                this.cells[i][j] = this.cell;
-                this.add(this.cell,i,j);
+                if(this.cells[i][j]==null) {
+                    this.cell = new Rectangle(10, 10, Paint.valueOf("#FFFFFF"));
+                    this.cells[i][j] = this.cell;
+                    this.add(this.cell, i, j);
+                }
             }
         }
     }
