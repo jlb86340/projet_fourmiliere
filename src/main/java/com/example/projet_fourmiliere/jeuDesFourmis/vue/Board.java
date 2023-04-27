@@ -74,11 +74,12 @@ public class Board extends GridPane {
         }
     }
 
-    public Board boardZoom(int X, int Y){ // X et Y represente respectivement getcellX/Y(mousseClicked)
-        Board board = new Board(11,29);
+    public void boardZoom(int X, int Y){ // X et Y represente respectivement getcellX/Y(mousseClicked)
+//        Board board = new Board(11,29);
         for(int i =0; i< 11; i++){
             for(int j=0; j< 11; j++){
                 if((X - 6 + i)<0 || (X - 6 + i)>11 || (Y - 6 + j)<0 || (Y - 6 + j)>11) {
+                    this.cells[i][j].setStyle("-fx-background-color: black");
                 }
                 else {
                     this.cells[i][j] = this.getCell(X - 6 + i, Y - 6 + j); // cette formule dans le getCell permet d'assurer qu'on récupère
@@ -86,6 +87,6 @@ public class Board extends GridPane {
                 }
             }
         }
-        return board;
+        //return board;
     }
 }
