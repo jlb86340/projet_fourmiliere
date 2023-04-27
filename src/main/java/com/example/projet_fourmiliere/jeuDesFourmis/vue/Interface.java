@@ -20,6 +20,8 @@ public class Interface extends VBox {
 
     private Boolean state;
 
+    private Settings settings;
+
     //Constructeur
     public Interface(){
         board = new Board(20);
@@ -42,8 +44,8 @@ public class Interface extends VBox {
         state = false;
         this.getControlPanel().getButton(4).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
             if (state == false) {
-                Settings test = new Settings();
-                this.getChildren().add(1, test);
+                settings = new Settings();
+                this.getChildren().add(1, settings);
                 this.setAlignment(Pos.CENTER_LEFT);
                 state = true;
             } else {
@@ -55,6 +57,9 @@ public class Interface extends VBox {
     //Méthodes
     public ControlPanel getControlPanel(){
         return controlPanel;
+    }
+    public Settings getSettings(){
+        return settings;
     }
     public Counter getCounter(){
         return counter;

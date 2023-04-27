@@ -30,7 +30,7 @@ public class Settings extends GridPane {
         vitSimulation.setShowTickMarks(true);
         vitSimulation.setShowTickLabels(true);
 
-        taillePlatJeu = new TextField();
+        taillePlatJeu = new TextField("20"); // initialiser à 20 pour que le binding soit sans souci
         capaCases = new TextField();
 
         taillePlatJeu.setMaxSize(30,30);
