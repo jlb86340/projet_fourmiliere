@@ -76,8 +76,8 @@ public class Board extends GridPane {
 
     public void boardZoom(int X, int Y){ // X et Y represente respectivement getcellX/Y(mousseClicked)
 //        Board board = new Board(11,29);
-        for(int i =0; i< 11; i++){
-            for(int j=0; j< 11; j++){
+        for(int i =0; i< 12; i++){
+            for(int j=0; j< 12; j++){
                 if((X - 6 + i)<0 || (X - 6 + i)>11 || (Y - 6 + j)<0 || (Y - 6 + j)>11) {
                     this.cells[i][j].setStyle("-fx-background-color: black");
                 }

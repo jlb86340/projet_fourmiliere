@@ -90,7 +90,17 @@ public class Controller {
             Board imageView = new Board(11,29); // création d'un tableau de 11 par 11  // new Board(11,29)
                     // SI on clique sur un endroit dans le terrain
             myInterface.getBoard().setOnMouseClicked(mouseEvent -> {
-                imageView.boardZoom(1,1); // normalement getX et getY mais pour l'instant il faut trouver comment réglé le OutOfBound
+                int X=0;
+                int Y=0;
+                if(myInterface.getControlPanel().getButton(3).getText().equals("Play")){
+                    X = (int) (mouseEvent.getX()/10);
+                    Y = (int) (mouseEvent.getY()/10);
+                }
+                else if(myInterface.getControlPanel().getButton(3).getText().equals("Pause")){ //obliger de differencier due au Hgap et Vgap
+                    X = (int) (mouseEvent.getX()/11);
+                    Y = (int) (mouseEvent.getY()/11);
+                }
+                imageView.boardZoom(X,Y); // normalement getX et getY mais pour l'instant il faut trouver comment réglé le OutOfBound
             });
             Scene scene = new Scene(new StackPane(imageView), 330,330);
             secondStage.setScene(scene);
