@@ -41,7 +41,7 @@ public class Board extends GridPane {
         this(size,10);
         //Vérification de la taille du plateau
         if(size<20) size=20;
-        resizeBoard(20,20);
+        resizeBoard(20);
     }
     //Méthodes
     public void setCell(Shape cell, int h, int l){
@@ -59,12 +59,12 @@ public class Board extends GridPane {
     }
 
     public void resetBoard(){
-        resizeBoard(this.size,this.size);
+        resizeBoard(this.size);
     }
 
-    public void resizeBoard(int Hauteur, int Largeur){
-        for(int i =0; i< Hauteur; i++){
-            for(int j=0; j< Largeur; j++){
+    public void resizeBoard(int size){
+        for(int i =0; i< size; i++){
+            for(int j=0; j< size; j++){
                 if(this.cells[i][j]==null) {
                     this.cell = new Rectangle(10, 10, Paint.valueOf("#FFFFFF"));
                     this.cells[i][j] = this.cell;

@@ -29,12 +29,22 @@ public class Controller {
         //Du bouton play/pause
         myInterface.getControlPanel().getButton(3).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent-> {
             if(myInterface.getControlPanel().getButton(3).getText().equals("Play")){
+                // activation/desactivation de composant d'après la consigne
                 myInterface.getControlPanel().getButton(3).setText("Pause");
+                myInterface.getBoard().setHgap(0);
+                myInterface.getBoard().setVgap(0);
+                myInterface.getSettings().getTaillePlatJeu().setDisable(true);
+                myInterface.getSettings().getCapaCases().setDisable(true);
             }
-            else{
+            else if(myInterface.getControlPanel().getButton(3).getText().equals("Pause")){
+                // activation/desactivation de composant d'après la consigne
                 myInterface.getControlPanel().getButton(3).setText("Play");
+                myInterface.getBoard().setHgap(1);
+                myInterface.getBoard().setVgap(1);
+                myInterface.getSettings().getTaillePlatJeu().setDisable(false);
+                myInterface.getSettings().getCapaCases().setDisable(false);
             }
-
+            else{}
         });
         //Bouton loupe
 //        myInterface.getControlPanel().getButton(1).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
@@ -102,12 +112,14 @@ public class Controller {
 
         //changement taille paramètre
         if(myInterface.getState()) {
-            myInterface.getSettings().getTaillePlatJeu().textProperty().addListener((observable, oldValue, newValue) -> {
-                if(myInterface.getSettings().getTaillePlatJeu() != null) {
-                    myInterface.getBoard().resizeBoard(Integer.parseInt(newValue), Integer.parseInt(newValue));
-                }
-            });
+//            myInterface.getSettings().getTaillePlatJeu().textProperty().bind(myInterface.getBoard().resizeBoard(Integer.parseInt(String.valueOf(myInterface.getSettings().getTaillePlatJeu()))));
         }
     }
     //Méthodes
 }
+
+//.addListener((observable, oldValue, newValue) -> {
+//        if(myInterface.getSettings().getTaillePlatJeu() != null) {
+//        myInterface.getBoard().resizeBoard(Integer.parseInt(newValue), Integer.parseInt(newValue));
+//        }
+//        })
