@@ -20,7 +20,7 @@ public class Interface extends VBox {
 
     private Boolean state;
 
-    private Settings settings;
+    //private Settings settings;
 
     //Constructeur
     public Interface(){
@@ -42,25 +42,25 @@ public class Interface extends VBox {
         this.setSpacing(20);
 
         state = false;
-        this.getControlPanel().getButton(4).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
-            if (state == false) {
-                settings = new Settings();
-                this.getChildren().add(1, settings);
-                this.setAlignment(Pos.CENTER_LEFT);
-                state = true;
-            } else {
-                this.getChildren().remove(1);
-                state = false;
-            }
-        });
+//        this.getControlPanel().getButton(4).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
+//            if (!state) {
+//                settings = new Settings();
+//                this.getChildren().add(1, settings);
+//                this.setAlignment(Pos.CENTER_LEFT);
+//                state = true;
+//            } else {
+//                this.getChildren().remove(1);
+//                state = false;
+//            }
+//        });
     }
     //Méthodes
     public ControlPanel getControlPanel(){
         return controlPanel;
     }
-    public Settings getSettings(){
-        return settings;
-    }
+//    public Settings getSettings(){
+//        return settings;
+//    }
     public Counter getCounter(){
         return counter;
     }

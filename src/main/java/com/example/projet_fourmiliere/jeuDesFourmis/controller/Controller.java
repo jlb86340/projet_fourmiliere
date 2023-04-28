@@ -3,6 +3,8 @@ package com.example.projet_fourmiliere.jeuDesFourmis.controller;
 import com.example.projet_fourmiliere.jeuDesFourmis.model.Fourmi;
 import com.example.projet_fourmiliere.jeuDesFourmis.vue.Board;
 import com.example.projet_fourmiliere.jeuDesFourmis.vue.Interface;
+import com.example.projet_fourmiliere.jeuDesFourmis.vue.PopUp;
+import com.example.projet_fourmiliere.jeuDesFourmis.vue.Settings;
 import javafx.application.Platform;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Scene;
@@ -19,11 +21,14 @@ public class Controller {
     private Fourmi myFourmi;
     private Interface myInterface;
 
+    private Settings settings;
+
     private static ImageView imageView;
     //Constructeur
     public Controller(Fourmi fourmi, Interface anInterface){
         myFourmi = fourmi;
         myInterface = anInterface;
+        settings = new Settings();
 
         //Abonnements
         //Du bouton play/pause
@@ -33,16 +38,16 @@ public class Controller {
                 myInterface.getControlPanel().getButton(3).setText("Pause");
                 myInterface.getBoard().setHgap(0);
                 myInterface.getBoard().setVgap(0);
-                myInterface.getSettings().getTaillePlatJeu().setDisable(true);
-                myInterface.getSettings().getCapaCases().setDisable(true);
+                settings.getTaillePlatJeu().setDisable(true);
+                settings.getCapaCases().setDisable(true);
             }
             else if(myInterface.getControlPanel().getButton(3).getText().equals("Pause")){
                 // activation/desactivation de composant d'après la consigne
                 myInterface.getControlPanel().getButton(3).setText("Play");
                 myInterface.getBoard().setHgap(1);
                 myInterface.getBoard().setVgap(1);
-                myInterface.getSettings().getTaillePlatJeu().setDisable(false);
-                myInterface.getSettings().getCapaCases().setDisable(false);
+                settings.getTaillePlatJeu().setDisable(false);
+                settings.getCapaCases().setDisable(false);
             }
             else{}
         });
@@ -117,13 +122,71 @@ public class Controller {
 
         //Boutton reset
         myInterface.getControlPanel().getButton(2).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
-            myInterface.getBoard().resetBoard();
+            Stage secondStage = new Stage();
+            PopUp pp= new PopUp("Êtes vous sûr de vouloir\n" +
+                    "reset le plateau :");
+            Scene scene = new Scene(pp);
+            secondStage.setScene(scene);
+            secondStage.show();
+            pp.getOui().addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent2->{
+                myInterface.getBoard().resetBoard();
+                secondStage.close();
+            });
+            pp.getANNULER().addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent3->{
+                secondStage.close();
+            });
         });
 
         //changement taille paramètre
-        if(myInterface.getState()) {
-//            myInterface.getSettings().getTaillePlatJeu().textProperty().bind(myInterface.getBoard().resizeBoard(Integer.parseInt(String.valueOf(myInterface.getSettings().getTaillePlatJeu()))));
-        }
+//        if(myInterface.getState()) {
+//            String taillePlateau = myInterface.getSettings().getTaillePlatJeu().getText();
+//            myInterface.getSettings().getValider().addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
+//                Stage secondStage = new Stage();
+//                PopUp pp= new PopUp("Êtes vous sûr de vouloir\n" +
+//                        "les changements effectuées au plateau :");
+//                Scene scene = new Scene(pp);
+//                secondStage.setScene(scene);
+//                secondStage.show();
+//                pp.getOui().addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, MouseEvent2->{
+//                    myInterface.getBoard().resizeBoard(Integer.parseInt(taillePlateau));
+//                    secondStage.close();
+//                });
+//                pp.getANNULER().addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, MouseEvent3->{
+//                    secondStage.close();
+//                });
+//            });
+//        }
+        // Paramètre
+        myInterface.getControlPanel().getButton(4).addEventHandler(MouseEvent.MOUSE_CLICKED, MouseEvent->{
+            Stage secondStage = new Stage();
+            Scene scene = new Scene(settings);
+            secondStage.setScene(scene);
+            secondStage.show();
+
+            settings.getValider().addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, MouseEvent2->{
+                String taillePlateau = settings.getTaillePlatJeu().getText();
+                Stage thirdStage = new Stage();
+                PopUp pp= new PopUp("Êtes vous sûr de vouloir\n" +
+                        "les changements effectuées au plateau :");
+                Scene scene2 = new Scene(pp);
+                thirdStage.setScene(scene2);
+                thirdStage.show();
+                pp.getOui().addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, MouseEvent3->{
+                    //myInterface.getBoard().resizeBoard(Integer.parseInt(taillePlateau));
+                    thirdStage.close();
+                    secondStage.close();
+                });
+                pp.getANNULER().addEventHandler(javafx.scene.input.MouseEvent.MOUSE_CLICKED, MouseEvent3->{
+                    thirdStage.close();
+                });
+            });
+        });
+
+
+
+
+
+       //myInterface.getSettings().getTaillePlatJeu().textProperty().bind(myInterface.getBoard().resizeBoard(Integer.parseInt(String.valueOf(myInterface.getSettings().getTaillePlatJeu()))));
     }
     //Méthodes
 }
