@@ -79,7 +79,7 @@ public class Board extends GridPane {
         for(int i =0; i< 12; i++){
             for(int j=0; j< 12; j++){
                 if((X - 6 + i)<0 || (X - 6 + i)>11 || (Y - 6 + j)<0 || (Y - 6 + j)>11) {
-                    this.cells[i][j].setStyle("-fx-background-color: black");
+                    this.cells[i][j]= new Rectangle(10, 10, Paint.valueOf("#000000"));
                 }
                 else {
                     this.cells[i][j] = this.getCell(X - 6 + i, Y - 6 + j); // cette formule dans le getCell permet d'assurer qu'on récupère
