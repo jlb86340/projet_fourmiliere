@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 public class Controller {
@@ -93,7 +94,26 @@ public class Controller {
                 myInterface.placeFourmi(x, y);
             }
         });
+        // placement graine
+        myInterface.getBoard().setOnScroll(event->{
+            double deltaY = event.getDeltaY();
+            int x = (int) event.getX() / 11;
+            int y = (int) event.getY() / 11;
+            // Récupération de la couleur de fond actuelle
+            Color currentColor = (Color) myInterface.getBoard().getCell(x,y).getBackground().getFills().get(0).getFill();
 
+            // Calcul de la nouvelle couleur en fonction du défilement
+            double red = currentColor.getRed() + deltaY / 100;
+
+            // Limitation des valeurs de rouge pour éviter les dépassements
+            red = Math.min(Math.max(red, 0.5), 1.0);
+
+            // Création de la nouvelle couleur
+            Color newColor = Color.color(red, 0.0, 0.0).interpolate(Color.ORANGERED, red);
+
+            // Affectation de la nouvelle couleur de fond
+            myInterface.getBoard().getCell(x,y).setStyle("-fx-background-color: " + newColor.toString().replace("0x", "#") + ";");
+        });
 
 
 
@@ -139,8 +159,11 @@ public class Controller {
                 secondStage.close();
             });
         });
+
+
     }
     //Méthodes
+
 }
 
 
