@@ -16,7 +16,6 @@ public class Settings extends GridPane {
     private Slider vitSimulation;
     private TextField taillePlatJeu;
     private TextField capaCases;
-    private Button valider;
 
 
 
@@ -29,7 +28,7 @@ public class Settings extends GridPane {
         Label textCapaCases = new Label("Capacité des cases : ");
         Label textVitesseSimu = new Label("Vitesse : ");
 
-        this.valider = new Button("Valider");
+
         vitSimulation = new Slider(0.5, 4, 0.25);
         vitSimulation.setShowTickMarks(true);
         vitSimulation.setShowTickLabels(true);
@@ -41,7 +40,7 @@ public class Settings extends GridPane {
         taillePlatJeu.setMaxSize(30,30);
         capaCases.setMaxSize(30,30);
 
-        this.addColumn(0,textTaillePlateau,textCapaCases,textVitesseSimu,this.valider);
+        this.addColumn(0,textTaillePlateau,textCapaCases,textVitesseSimu);
         this.addColumn(1, taillePlatJeu, capaCases, vitSimulation);
 
         this.setAlignment(Pos.CENTER);
@@ -71,7 +70,5 @@ public class Settings extends GridPane {
         this.capaCases = capaCases;
     }
 
-    public Button getValider() {
-        return valider;
-    }
+
 }

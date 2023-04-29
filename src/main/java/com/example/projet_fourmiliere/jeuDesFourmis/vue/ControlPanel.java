@@ -23,7 +23,7 @@ public class ControlPanel extends VBox {
         this.PlayAndPause = new Button("Play");
         this.Reset = new Button("Reset");
         this.Init = new Button("Initialiser");
-        this.Settings = new Button("Paramètres");
+        this.Settings = new Button("Valid Param");
 
         this.Loupe.setPrefSize(80,30);
         this.Quit.setPrefSize(80,30);

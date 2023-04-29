@@ -2,6 +2,7 @@ package com.example.projet_fourmiliere.jeuDesFourmis;
 
 import com.example.projet_fourmiliere.jeuDesFourmis.controller.Controller;
 import com.example.projet_fourmiliere.jeuDesFourmis.model.Fourmi;
+import com.example.projet_fourmiliere.jeuDesFourmis.model.Fourmiliere;
 import com.example.projet_fourmiliere.jeuDesFourmis.vue.Interface;
 import javafx.application.Application;
 import javafx.scene.Scene;
@@ -11,9 +12,10 @@ public class test extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        Interface inter = new Interface();
-        Fourmi anFourmi = new Fourmi();
-        Controller controller = new Controller(anFourmi, inter);
+        Fourmiliere anFourmiliere = new Fourmiliere(20,20,4);
+        Interface inter = new Interface(anFourmiliere);
+
+        Controller controller = new Controller(anFourmiliere, inter);
 
         Scene scene  = new Scene(inter);
         stage.setScene(scene);

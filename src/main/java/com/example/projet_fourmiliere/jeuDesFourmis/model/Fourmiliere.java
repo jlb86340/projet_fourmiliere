@@ -192,7 +192,7 @@ public class Fourmiliere {
    *                  en fonction du nombre de graines autour. 
    *     2) f se deplace aléatoirement d'une case (en évitant les murs)
    *     3) si f est chargée et qu'il reste de la place pour une graine, 
-   *          on choisit aléatoirement de poser ou non  la graine, 
+   *          on choisit aléatoirement de poser ou non la graine,
    *          en fonction du nombre de graines autour.  
    *        
    */
